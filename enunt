@@ -1,0 +1,59 @@
+Introducere
+
+Cum Browser-ul este una dintre cele mai utilizate aplicații, ne dorim ca acesta să funcționeze cât mai eficient și să fie cât mai rapid în orice situație.
+
+Un task pe care trebuie să-l implementeze orice browser este gestiunea istoricului. Pentru aceasta se folosește o structură de date denumită deque.
+
+Pentru a gestiona un istoric trebuie implementate diverse operații cum ar fi adăugarea unor noi intrări, șterea automată a celor vechi, selectarea unor intrări ce ar trebui șterse.
+
+Deque
+
+Pentru a implementa tema, se va folosi structura de date deque(Double ended queue).
+
+Deque este o structură de date ce permite următoarele operații:
+
+push_front: Inserare la începutul structurii
+pop_front: Ștergere a primului element
+push_back: Inserare la finalul structurii
+pop_back: Ștergere a ultimului element
+front: Întoarce primul element
+back: Întoarce ultimul element
+În funcție de implementare, se pot adăuga următoarele operații suplimentare:
+
+erase: Șterge elementul de la o poziție dată
+get: Întoarce elementul de la o poziție dată
+Implementări
+
+În funcție de diversele implementări, se pot obține performanțe diferite pentru anumite operații asupra structurii de date.
+
+Un deque poate fi implementat în următoarele moduri:
+
+Listă dublu înlănțuită
+
+În cazul de bază, un deque se poate implementa folosind o listă dublu înlănțuită.
+
+Această implementare oferă în timp constant operațiile de adăugare și ștergere de la începtul și finalul structurii. În schimb, timpul pentru a accesa elementul i este liniar (se vor face i operații pentru a întoarce / șterge elementul de la poziția i).
+
+Vector
+
+O altă implementare se poate face folosind un vector și doi indecși (de început și final).
+
+
+
+Atunci când vectorul este plin, va trebui realocat și toate elementele vor trebui mutate.
+
+Această implementare are avantajul de a executa operația get în timp constant.
+
+Pe o astfel de implementare, la o operație de erase, toate elementele vor trebui mutate pentru a acoperi poziția eliminată.
+
+Hibrid
+
+Pentru implementarea temei propunem o implementare hibridă. Listă dublu înlănțuită ce conține în fiecare nod un deque implementat ca vector.
+
+Operațiile vor fi făcute astfel: push_back, push_front: Se încearcă adăugarea în ultimul/primul nod. Dacă nu este posibil, se creează un nou nod, se inserează la final/început, se adaugă valoarea la început/final în deque-ul din nod.
+
+pop_back, pop_front: Se apelează pop_back/pop_front pe ultimu/primul nod. Dacă nodul rămâne fără elemente, acesta este eliminat din listă.
+
+get: Se parcurge lista nod cu nod. Se identifică nodul în care se află elementul. Se întoarce valoarea acestuia.
+
+erase: Se parcurge lista nod cu nod. Se identifică nodul din care trebuie șters elementul. Se șterge elementul (mutând elementele cu poziția i mai mare decât poziția sa pe poziția i - 1). Dacă nodul rămâne fără elemente, acesta este eliminat din listă.

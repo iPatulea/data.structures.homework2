@@ -1,0 +1,12 @@
+Patulea Ionut
+313CA
+
+README pentru tema 2 SD:
+
+	Am creat o clasa in care fiecare dintre metode reprezinta o posibila comanda transimisa. Main-ul doar citeste compara si trimite in clasa
+comanda cu parametrii sai. De fiecare data cand trece o zi am grija sa sterg ultima zi din deque daca s-a depasit numarul maxim de zile. Cand 
+pun un nou element in deque folosesc doar functia push_front si maresc contorul pentru numarul de elemente puse in ea. In CLEAR_RECENT_HISTORY 
+sterg pana cand deque este gol sau am sters toate zilele cerute. SET_MAX_DAYS este aproape identic cu DAY_PASSES si modific numarul de zile 
+maxim permis. Iar RECOVER_HISTORY citesc elementele pana cand este atinsa limita de zile sau pana la sfarsitul fisierului.
+	Deque impementat in hibrid.h este o lista inlantuita cu campul de vector adaugat si metodele putin schimbate. In principal elementele puse 
+vor fi de tip URL adica zi si url. Tratez cazurile speciale in parte pentru fiecare metoda si am grija sa leg bine pointerii. 
